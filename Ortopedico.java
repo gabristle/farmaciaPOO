@@ -10,6 +10,15 @@ public class Ortopedico extends Produto{
 
     public void impRelatorio(){
         System.out.println("\t\nRelatorio de alteracao de Ortopedico: ");
+        System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
+        System.out.println("Rua: " +getFarmacia().getRua());
+        System.out.println("\nOrtopedico alterado:");
+        System.out.println("Nome: " +getNome());
+        System.out.println("Unidades em estoque: " +getQuantidade());
+        System.out.println("Preco: " +getPreco());
+        System.out.println("Marca: " +getMarca());
+        System.out.println("Tamanho: " +getTamanho());
+        System.out.println("Tipo: " +getTipo());
     }
 
     public Ortopedico(){

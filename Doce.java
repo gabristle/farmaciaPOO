@@ -1,3 +1,8 @@
+/*
+ * Nome: Gabriella Ribeiro de Melo e Costa
+ * RA: 2487837
+ */
+
 public class Doce extends Produto{
     private String tipo;
     private String sabor;
@@ -6,6 +11,16 @@ public class Doce extends Produto{
 
     public void impRelatorio(){
         System.out.println("\t\nRelatorio de alteracao de Doce: ");
+        System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
+        System.out.println("Rua: " +getFarmacia().getRua());
+        System.out.println("\nDoce alterado:");
+        System.out.println("Nome: " +getNome());
+        System.out.println("Unidades em estoque: " +getQuantidade());
+        System.out.println("Preco: " +getPreco());
+        System.out.println("Tipo: " +getTipo());
+        System.out.println("Tamanho: " +getSabor());
+        System.out.println("Peso Liquido: " +getPesoLiq());
+        System.out.println("Marca: " +getMarca());
     }
 
     public Doce(){
