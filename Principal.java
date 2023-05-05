@@ -12,9 +12,36 @@ public class Principal {
         Leitura l = new Leitura();
         int opcao = 0;
         boolean vai = true;
-        
-        while(vai){
+        int opcao1 = 0;
+        String cidade = "";
+        String nomeFunc = "";
 
+        
+        System.out.println("========== Cadastro de Estoque ==========");
+        nomeFunc = (l.entDados("\nDigite seu nome: "));
+        System.out.println("\nEscolha a farmacia: ");
+        System.out.println("1 - Apucarana");
+        System.out.println("2 - Londrina ");
+        System.out.println("3 - Ibaiti");
+        opcao1 = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
+        switch(opcao1){
+            case 1:
+            cidade = "Apucarana";
+            break;
+
+            case 2:
+            cidade = "Londrina";
+            break;
+
+            case 3:
+            cidade = "Ibaiti";
+            break;
+            default:
+            System.out.println("Opcao Invalida");
+            break;
+        }
+
+        while(vai){
             System.out.println("========== Cadastro de Estoque ==========");
             System.out.println("\nEscolha o tipo de produto: ");
             System.out.println("1 - Medicamento");
@@ -24,10 +51,9 @@ public class Principal {
             
             switch(opcao){
                 case 1:
-                System.out.println("\nPreencha os dados da Farmacia que quer gerenciar:");
-                medic.getFarmacia().setCidade(l.entDados("Digite a cidade da Farmacia: "));
-                medic.getFarmacia().setRua(l.entDados("Rua: "));
                 System.out.println("\nDigite os dados do estoque: ");
+                medic.getFarmacia().setNomeFunc(nomeFunc);
+                medic.getFarmacia().setCidade(cidade);
                 medic.setNome(l.entDados("\nNome do medicamento: "));
                 medic.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
                 medic.setPreco(Float.parseFloat(l.entDados("Preco: ")));
@@ -39,10 +65,9 @@ public class Principal {
                 break;
 
                 case 2:
-                System.out.println("\nPreencha os dados da Farmacia que quer gerenciar:");
-                orto.getFarmacia().setCidade(l.entDados("\nDigite a cidade da Farmacia: "));
-                orto.getFarmacia().setRua(l.entDados("Rua: "));
                 System.out.println("Digite os dados do estoque: ");
+                orto.getFarmacia().setNomeFunc(nomeFunc);
+                medic.getFarmacia().setCidade(cidade);
                 orto.setNome(l.entDados("Nome do produto: "));
                 orto.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
                 orto.setPreco(Float.parseFloat(l.entDados("Preco: ")));
@@ -54,10 +79,9 @@ public class Principal {
                 break;
 
                 case 3:
-                System.out.println("\nPreencha os dados da Farmacia que quer gerenciar:");
-                doce.getFarmacia().setCidade(l.entDados("Digite a cidade da Farmacia: "));
-                doce.getFarmacia().setRua(l.entDados("Rua: "));
                 System.out.println("Digite os dados do estoque: ");
+                doce.getFarmacia().setNomeFunc(nomeFunc);
+                medic.getFarmacia().setCidade(cidade);
                 doce.setNome(l.entDados("Nome do produto: "));
                 doce.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
                 doce.setPreco(Float.parseFloat(l.entDados("Preco: ")));

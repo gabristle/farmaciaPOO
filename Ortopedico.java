@@ -3,15 +3,15 @@
  * RA: 2487837
  */
 
-public class Ortopedico extends Produto{
+public class Ortopedico extends Produto implements Descontos{
     private String tipo;
     private String tamanho;
     private String marca;
 
     public void impRelatorio(){
         System.out.println("\t\nRelatorio de alteracao de Ortopedico: ");
+        System.out.println("Estoque alterado por " +getFarmacia().getNomeFunc());
         System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
-        System.out.println("Rua: " +getFarmacia().getRua());
         System.out.println("\nOrtopedico alterado:");
         System.out.println("Nome: " +getNome());
         System.out.println("Unidades em estoque: " +getQuantidade());
@@ -49,5 +49,15 @@ public class Ortopedico extends Produto{
 
     public void setMarca(String marca){
         this.marca = marca;
+    }
+
+    public float descontoCliente(){
+        descCliente = getPreco()-(getPreco() * 0.1f);
+        return descCliente;
+    }
+
+    public float descontoFuncionario(){
+        descFunc = getPreco()-(getPreco() * 0.15f);
+        return descFunc;
     }
 }

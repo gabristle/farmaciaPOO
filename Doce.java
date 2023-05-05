@@ -11,8 +11,8 @@ public class Doce extends Produto{
 
     public void impRelatorio(){
         System.out.println("\t\nRelatorio de alteracao de Doce: ");
+        System.out.println("Estoque alterado por " +getFarmacia().getNomeFunc());
         System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
-        System.out.println("Rua: " +getFarmacia().getRua());
         System.out.println("\nDoce alterado:");
         System.out.println("Nome: " +getNome());
         System.out.println("Unidades em estoque: " +getQuantidade());

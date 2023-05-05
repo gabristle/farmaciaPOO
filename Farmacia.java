@@ -5,26 +5,27 @@
 
 public class Farmacia {
     private String cidade;
-    private String rua;
+    private String nomeFunc;
 
     public Farmacia(){
         cidade = "";
-        rua = "";
+        nomeFunc = "";
     }
 
     public String getCidade(){
         return cidade;
     }
 
-    public String getRua(){
-        return rua;
+    public String getNomeFunc(){
+        return nomeFunc;
     }
 
     public void setCidade(String cidade){
         this.cidade = cidade;
     }
 
-    public void setRua(String rua){
-        this.rua = rua;
+    public void setNomeFunc(String nomeFunc){
+        this.nomeFunc = nomeFunc;
     }
+
 }

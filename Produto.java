@@ -8,6 +8,8 @@ public abstract class Produto {
     private int quantidade;
     private float preco;
     private Farmacia farmacia;
+    protected float descCliente;
+    protected float descFunc;
 
     public abstract void impRelatorio();
 
