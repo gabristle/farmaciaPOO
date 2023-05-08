@@ -6,8 +6,6 @@
 public class Doce extends Produto{
     private String tipo;
     private String sabor;
-    private int pesoLiq;
-    private String marca;
 
     public void impRelatorio(){
         System.out.println("\t\nRelatorio de alteracao de Doce: ");
@@ -19,15 +17,11 @@ public class Doce extends Produto{
         System.out.println("Preco: " +getPreco());
         System.out.println("Tipo: " +getTipo());
         System.out.println("Tamanho: " +getSabor());
-        System.out.println("Peso Liquido (em gramas): " +getPesoLiq());
-        System.out.println("Marca: " +getMarca());
     }
 
     public Doce(){
         tipo = "";
         sabor = "";
-        pesoLiq = 0;
-        marca = "";
     }
 
     public void setTipo(String tipo){
@@ -38,14 +32,6 @@ public class Doce extends Produto{
         this.sabor = sabor;
     }
 
-    public void setPesoLiq(int pesoLiq){
-        this.pesoLiq = pesoLiq;
-    }
-
-    public void setMarca(String marca){
-        this.marca = marca;
-    }
-
     public String getTipo(){
         return tipo;
     }
@@ -54,17 +40,27 @@ public class Doce extends Produto{
         return sabor;
     }
 
-    public int getPesoLiq(){
-        return pesoLiq;
-    }
-
-    public String getMarca(){
-        return marca;
-    }
-
     public void switchTipo(int tipo){
         switch(tipo){
-            
+            case 1:
+            setTipo("Bala");
+            break;
+
+            case 2:
+            setTipo("Chocolate");
+            break;
+
+            case 3:
+            setTipo("Chiclete");
+            break;
+
+            case 4:
+            setTipo("Pirulito");
+            break;
+
+            default:
+            System.out.println("Opcao invalida! Digite novamente (de 1 a 4): ");
+            break;
         }
     }
     

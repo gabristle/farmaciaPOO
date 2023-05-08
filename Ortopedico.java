@@ -6,12 +6,10 @@
 public class Ortopedico extends Produto implements Descontos{
     private String tipo;
     private String tamanho;
-    private String marca;
     
     public Ortopedico(){
         tipo = "";
         tamanho = "";
-        marca = "";
     }
 
     public String getTipo(){
@@ -22,20 +20,12 @@ public class Ortopedico extends Produto implements Descontos{
         return tamanho;
     }
 
-    public String getMarca(){
-        return marca;
-    }
-
     public void setTipo(String tipo){
         this.tipo = tipo;
     }
 
     public void setTamanho(String tamanho){
         this.tamanho = tamanho;
-    }
-
-    public void setMarca(String marca){
-        this.marca = marca;
     }
 
     public float descontoCliente(){
@@ -118,7 +108,6 @@ public class Ortopedico extends Produto implements Descontos{
         System.out.println("Preco: " +getPreco());
         System.out.println("Preco com desconto para Clientes: " +descontoCliente());
         System.out.println("Preco com desconto para Funcionarios: " +descontoFuncionario());
-        System.out.println("Marca: " +getMarca());
         System.out.println("Tamanho: " +getTamanho());
         System.out.println("Tipo: " +getTipo());
     }

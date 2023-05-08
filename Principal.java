@@ -6,15 +6,15 @@
 public class Principal {
     
     public static void main(String arg[]){ 
+        Medicamento medic = new Medicamento();
+        Ortopedico orto = new Ortopedico();
+        Doce doce = new Doce();
+        Leitura l = new Leitura();
         int opcao = 0;
         int opCid = 0;
         boolean continua = true;
         String cidade = "";
         String nomeFunc = "";
-        Medicamento medic = new Medicamento();
-        Ortopedico orto = new Ortopedico();
-        Doce doce = new Doce();
-        Leitura l = new Leitura();
 
         
         System.out.println("========== Cadastro de Estoque ==========");
@@ -133,7 +133,6 @@ public class Principal {
                         nne.impNumNegativo();
                     }
                 }
-                orto.setMarca(l.entDados("Marca do produto: "));
                 do{ 
                     System.out.println("\nTamanhos:");
                     System.out.println("P - Pequeno");
@@ -183,13 +182,22 @@ public class Principal {
                     }
                     catch(NumNegativoException nne){
                         nne.impNumNegativo();
-                    }
-                    
+                    } 
                 }
-                doce.setTipo(l.entDados("Tipo: "));
+                do{
+                    System.out.println("\nTipos de Doces:");
+                    System.out.println("1 - Bala");
+                    System.out.println("2 - Chocolate");
+                    System.out.println("3 - Chiclete");
+                    System.out.println("4 - Pirulito");
+                    try{
+                        doce.switchTipo(Integer.parseInt(l.entDados("Tipo: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero: ");
+                    }
+                }while(doce.getTipo() != "Bala" && doce.getTipo() != "Chocolate" && doce.getTipo() != "Chiclete" && doce.getTipo() != "Pirulito");
                 doce.setSabor(l.entDados("Sabor: "));
-                doce.setPesoLiq(Integer.parseInt(l.entDados("Peso Liquido: ")));
-                doce.setMarca(l.entDados("Marca do produto: "));
                 doce.impRelatorio();
                 break;
 
@@ -203,5 +211,4 @@ public class Principal {
             }
         }
     }
-
 }
