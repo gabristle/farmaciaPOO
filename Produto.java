@@ -53,7 +53,11 @@ public abstract class Produto {
 
     }
 
-    public void setPreco(float preco){
-        this.preco = preco;
+    public void setPreco(float preco) throws NumNegativoException{
+        if(preco > 0){
+            this.preco = preco;
+        } else {
+            throw new NumNegativoException();
+        }
     }
 }

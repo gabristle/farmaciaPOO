@@ -88,7 +88,17 @@ public class Principal {
                         nne.impNumNegativo();
                     }
                 }
-                medic.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                while(continua){
+                    try{
+                        medic.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                }
                 medic.setLaboratorio(l.entDados("Nome do laboratorio: "));
                 medic.setDosagem(Integer.parseInt(l.entDados("Dosagem (em miligramas):")));
 
@@ -98,7 +108,7 @@ public class Principal {
                 case 2:
                 System.out.println("Digite os dados do estoque: ");
                 orto.getFarmacia().setNomeFunc(nomeFunc);
-                medic.getFarmacia().setCidade(cidade);
+                orto.getFarmacia().setCidade(cidade);
                 orto.setNome(l.entDados("Nome do produto: "));
                 while(continua){
                     try{
@@ -112,7 +122,17 @@ public class Principal {
                         nne.impNumNegativo();
                     }
                 }
-                orto.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                while(continua){
+                    try{
+                        orto.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                }
                 orto.setMarca(l.entDados("Marca do produto: "));
                 do{ 
                     System.out.println("\nTamanhos:");
@@ -128,7 +148,12 @@ public class Principal {
                     System.out.println("3 - Tornozeleira");
                     System.out.println("4 - Cinta");
                     System.out.println("5 - Espaldeira");
-                    orto.switchOrto(Integer.parseInt(l.entDados("Selecione: ")));
+                    try{
+                        orto.switchOrto(Integer.parseInt(l.entDados("Selecione: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
                 } while(orto.getTipo() != "Joelheira" && orto.getTipo() != "Tornozeleira" && orto.getTipo() != "Cinta" && orto.getTipo() != "Tala" &&orto.getTipo() != "Espaldeira");
                 orto.impRelatorio();
                 break;
@@ -136,7 +161,7 @@ public class Principal {
                 case 3:
                 System.out.println("Digite os dados do estoque: ");
                 doce.getFarmacia().setNomeFunc(nomeFunc);
-                medic.getFarmacia().setCidade(cidade);
+                doce.getFarmacia().setCidade(cidade);
                 doce.setNome(l.entDados("Nome do produto: "));
                 while(continua){
                     try{
@@ -149,7 +174,18 @@ public class Principal {
                         nne.impNumNegativo();
                     }
                 }
-                doce.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                while(continua){
+                    try{
+                        doce.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne){
+                        nne.impNumNegativo();
+                    }
+                    
+                }
                 doce.setTipo(l.entDados("Tipo: "));
                 doce.setSabor(l.entDados("Sabor: "));
                 doce.setPesoLiq(Integer.parseInt(l.entDados("Peso Liquido: ")));
