@@ -19,7 +19,7 @@ public class Doce extends Produto{
         System.out.println("Preco: " +getPreco());
         System.out.println("Tipo: " +getTipo());
         System.out.println("Tamanho: " +getSabor());
-        System.out.println("Peso Liquido: " +getPesoLiq());
+        System.out.println("Peso Liquido (em gramas): " +getPesoLiq());
         System.out.println("Marca: " +getMarca());
     }
 
@@ -60,6 +60,12 @@ public class Doce extends Produto{
 
     public String getMarca(){
         return marca;
+    }
+
+    public void switchTipo(int tipo){
+        switch(tipo){
+            
+        }
     }
     
 }

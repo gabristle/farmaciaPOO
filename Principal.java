@@ -6,15 +6,15 @@
 public class Principal {
     
     public static void main(String arg[]){ 
+        int opcao = 0;
+        int opCid = 0;
+        boolean continua = true;
+        String cidade = "";
+        String nomeFunc = "";
         Medicamento medic = new Medicamento();
         Ortopedico orto = new Ortopedico();
         Doce doce = new Doce();
         Leitura l = new Leitura();
-        int opcao = 0;
-        boolean vai = true;
-        int opcao1 = 0;
-        String cidade = "";
-        String nomeFunc = "";
 
         
         System.out.println("========== Cadastro de Estoque ==========");
@@ -23,43 +23,74 @@ public class Principal {
         System.out.println("1 - Apucarana");
         System.out.println("2 - Londrina ");
         System.out.println("3 - Ibaiti");
-        opcao1 = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
-        switch(opcao1){
-            case 1:
-            cidade = "Apucarana";
-            break;
+        do{
+            while(continua){
+                try{
+                    opCid = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
+                    break;
+                }
+        
+                catch(NumberFormatException nfe){
+                    System.out.println("Deve ser um numero. erro --> " +nfe);
+                }
+            }
 
-            case 2:
-            cidade = "Londrina";
-            break;
+            switch(opCid){
+                case 1:
+                cidade = "Apucarana";
+                break;
 
-            case 3:
-            cidade = "Ibaiti";
-            break;
-            default:
-            System.out.println("Opcao Invalida");
-            break;
-        }
+                case 2:
+                cidade = "Londrina";
+                break;
 
-        while(vai){
-            System.out.println("========== Cadastro de Estoque ==========");
-            System.out.println("\nEscolha o tipo de produto: ");
-            System.out.println("1 - Medicamento");
-            System.out.println("2 - Ortopedico");
-            System.out.println("3 - Doce");
-            opcao = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
+                case 3:
+                cidade = "Ibaiti";
+                break;
+
+                default:
+                System.out.println("Opcao Invalida");
+                break;
+            }
+        } while(opCid != 1 && opCid != 2 && opCid != 3);
+
+        while(continua){
+            do{
+                System.out.println("\nEscolha o tipo de produto: ");
+                System.out.println("1 - Medicamento");
+                System.out.println("2 - Ortopedico");
+                System.out.println("3 - Doce");
+                System.out.println("4 - Sair");
+                try{
+                    opcao = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
+                    break;
+                }
+                catch(NumberFormatException nfe){
+                    System.out.println("Deve ser um numero. erro --> " +nfe);
+                }
+            }while(opcao != 1 && opcao != 2 && opcao != 3);
             
             switch(opcao){
                 case 1:
                 System.out.println("\nDigite os dados do estoque: ");
                 medic.getFarmacia().setNomeFunc(nomeFunc);
                 medic.getFarmacia().setCidade(cidade);
-                medic.setNome(l.entDados("\nNome do medicamento: "));
-                medic.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                medic.setNome(l.entDados("Nome do medicamento: "));
+                while(continua){
+                    try{
+                        medic.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                        break;
+                    } 
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                }
                 medic.setPreco(Float.parseFloat(l.entDados("Preco: ")));
                 medic.setLaboratorio(l.entDados("Nome do laboratorio: "));
                 medic.setDosagem(Integer.parseInt(l.entDados("Dosagem (em miligramas):")));
-                medic.setPosologia(l.entDados("Posologia: "));
 
                 medic.impRelatorio();
                 break;
@@ -69,12 +100,36 @@ public class Principal {
                 orto.getFarmacia().setNomeFunc(nomeFunc);
                 medic.getFarmacia().setCidade(cidade);
                 orto.setNome(l.entDados("Nome do produto: "));
-                orto.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                while(continua){
+                    try{
+                        orto.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                        break;
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                }
                 orto.setPreco(Float.parseFloat(l.entDados("Preco: ")));
                 orto.setMarca(l.entDados("Marca do produto: "));
-                orto.setTamanho(l.entDados("Tamanho: "));
-                orto.setTipo(l.entDados("Tipo de ortopedico: "));
-
+                do{ 
+                    System.out.println("\nTamanhos:");
+                    System.out.println("P - Pequeno");
+                    System.out.println("M - Medio");
+                    System.out.println("G - Grande");
+                    orto.switchOrto(l.entDados("Selecione: ").charAt(0));
+                } while(orto.getTamanho() != "Pequeno" && orto.getTamanho() != "Grande" && orto.getTamanho() != "Medio");
+                do{
+                    System.out.println("\nTipos de ortopedico:");
+                    System.out.println("1 - Joelheira");
+                    System.out.println("2 - Tala");
+                    System.out.println("3 - Tornozeleira");
+                    System.out.println("4 - Cinta");
+                    System.out.println("5 - Espaldeira");
+                    orto.switchOrto(Integer.parseInt(l.entDados("Selecione: ")));
+                } while(orto.getTipo() != "Joelheira" && orto.getTipo() != "Tornozeleira" && orto.getTipo() != "Cinta" && orto.getTipo() != "Tala" &&orto.getTipo() != "Espaldeira");
                 orto.impRelatorio();
                 break;
 
@@ -83,14 +138,27 @@ public class Principal {
                 doce.getFarmacia().setNomeFunc(nomeFunc);
                 medic.getFarmacia().setCidade(cidade);
                 doce.setNome(l.entDados("Nome do produto: "));
-                doce.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                while(continua){
+                    try{
+                        doce.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                    }
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                }
                 doce.setPreco(Float.parseFloat(l.entDados("Preco: ")));
                 doce.setTipo(l.entDados("Tipo: "));
                 doce.setSabor(l.entDados("Sabor: "));
                 doce.setPesoLiq(Integer.parseInt(l.entDados("Peso Liquido: ")));
                 doce.setMarca(l.entDados("Marca do produto: "));
-
                 doce.impRelatorio();
+                break;
+
+                case 4:
+                continua = false;
                 break;
 
                 default:

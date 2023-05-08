@@ -44,8 +44,13 @@ public abstract class Produto {
         this.nome = nome;
     }
 
-    public void setQuantidade(int quantidade){
-        this.quantidade = quantidade;
+    public void setQuantidade(int quantidade) throws NumNegativoException{
+        if(quantidade > 0){
+            this.quantidade = quantidade;
+        } else {
+            throw new NumNegativoException();
+        }
+
     }
 
     public void setPreco(float preco){

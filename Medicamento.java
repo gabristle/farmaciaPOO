@@ -6,14 +6,14 @@
 public class Medicamento extends Produto implements Descontos{
     private String laboratorio;
     private int dosagem;
-    private String posologia;
+    private boolean controlado;
     
     public Medicamento(){
         laboratorio = "";
         dosagem = 0;
-        posologia = "";
+        controlado = false;
     }
-    
+
     
     public String getLaboratorio(){
         return laboratorio;
@@ -23,8 +23,8 @@ public class Medicamento extends Produto implements Descontos{
         return dosagem;
     }
 
-    public String getPosologia(){
-        return posologia;
+    public boolean getControlado(){
+        return controlado;
     }
     
     public void setLaboratorio(String laboratorio){
@@ -35,8 +35,8 @@ public class Medicamento extends Produto implements Descontos{
         this.dosagem = dosagem;
     }
     
-    public void setPosologia(String posologia){
-        this.posologia = posologia;
+    public void setControlado(boolean controlado){
+        this.controlado = controlado;
     }
     
     public float descontoCliente(){
@@ -61,6 +61,6 @@ public class Medicamento extends Produto implements Descontos{
         System.out.println("Preco com desconto para Funcionarios: " +descontoFuncionario());
         System.out.println("Laboratorio: " +getLaboratorio());
         System.out.println("Dosagem: " +getDosagem());
-        System.out.println("Posologia: " +getPosologia());
+        System.out.println("Controlado: " +getControlado());
     }
 }
