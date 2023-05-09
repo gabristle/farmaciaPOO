@@ -75,7 +75,18 @@ public class Principal {
                 System.out.println("\nDigite os dados do estoque: ");
                 medic.getFarmacia().setNomeFunc(nomeFunc);
                 medic.getFarmacia().setCidade(cidade);
-                medic.setNome(l.entDados("Nome do medicamento: "));
+                while(continua){
+                    try{
+                        medic.setNome(l.entDados("Nome do medicamento: "));
+                        break;
+                    }
+                    catch(CaractereMaxException cmaxe){
+                        cmaxe.impCaractereMax();
+                    }
+                    catch(CaractereMinException cmine){
+                        cmine.impCaractereMin();
+                    }
+                }
                 while(continua){
                     try{
                         medic.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
@@ -86,6 +97,9 @@ public class Principal {
                     }
                     catch(NumNegativoException nne) {
                         nne.impNumNegativo();
+                    }
+                    catch(QuantidadeMaxException qme){
+                        qme.impQuantidadeMax();
                     }
                 }
                 while(continua){
@@ -99,7 +113,18 @@ public class Principal {
                         nne.impNumNegativo();
                     }
                 }
-                medic.setLaboratorio(l.entDados("Nome do laboratorio: "));
+                while(continua){
+                    try{
+                        medic.setLaboratorio(l.entDados("Nome do laboratorio: "));
+                        break;
+                    }
+                    catch(CaractereMaxException cmaxe){
+                        cmaxe.impCaractereMax();
+                    }
+                    catch(CaractereMinException cmine){
+                        cmine.impCaractereMin();
+                    }
+                }
                 medic.setDosagem(Integer.parseInt(l.entDados("Dosagem (em miligramas):")));
 
                 medic.impRelatorio();
@@ -109,7 +134,19 @@ public class Principal {
                 System.out.println("Digite os dados do estoque: ");
                 orto.getFarmacia().setNomeFunc(nomeFunc);
                 orto.getFarmacia().setCidade(cidade);
-                orto.setNome(l.entDados("Nome do produto: "));
+                while(continua){
+                    try{
+                        orto.setNome(l.entDados("Nome do produto: "));
+                        break;
+                    }
+                    catch(CaractereMaxException cmaxe){
+                        cmaxe.impCaractereMax();
+                    }
+                    catch(CaractereMinException cmine){
+                        cmine.impCaractereMin();
+                    }
+                }
+
                 while(continua){
                     try{
                         orto.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
@@ -118,8 +155,11 @@ public class Principal {
                     catch(NumberFormatException nfe){
                         System.out.println("Erro! Digite um numero");
                     }
-                    catch(NumNegativoException nne) {
+                    catch(NumNegativoException nne){
                         nne.impNumNegativo();
+                    }
+                    catch(QuantidadeMaxException qme){
+                        qme.impQuantidadeMax();
                     }
                 }
                 while(continua){
@@ -161,7 +201,18 @@ public class Principal {
                 System.out.println("Digite os dados do estoque: ");
                 doce.getFarmacia().setNomeFunc(nomeFunc);
                 doce.getFarmacia().setCidade(cidade);
-                doce.setNome(l.entDados("Nome do produto: "));
+                while(continua){
+                    try{
+                        doce.setNome(l.entDados("Nome do produto: "));
+                        break;
+                    }
+                    catch(CaractereMaxException cmaxe){
+                        cmaxe.impCaractereMax();
+                    }
+                    catch(CaractereMinException cmine){
+                        cmine.impCaractereMin();
+                    }
+                }
                 while(continua){
                     try{
                         doce.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
@@ -171,6 +222,9 @@ public class Principal {
                     }
                     catch(NumNegativoException nne) {
                         nne.impNumNegativo();
+                    }
+                    catch(QuantidadeMaxException qme){
+                        qme.impQuantidadeMax();
                     }
                 }
                 while(continua){

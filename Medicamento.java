@@ -27,8 +27,16 @@ public class Medicamento extends Produto implements Descontos{
         return controlado;
     }
     
-    public void setLaboratorio(String laboratorio){
-        this.laboratorio = laboratorio;
+    public void setLaboratorio(String laboratorio) throws CaractereMinException, CaractereMaxException{
+        if(laboratorio.length() >= 3){
+            if(laboratorio.length() <= 30){
+                this.laboratorio = laboratorio;
+            }else{
+                throw new CaractereMaxException();
+            }
+        }else{
+            throw new CaractereMinException();
+        }
     }
     
     public void setDosagem(int dosagem){
@@ -60,7 +68,7 @@ public class Medicamento extends Produto implements Descontos{
         System.out.println("Preco com desconto para Clientes: " +descontoCliente());
         System.out.println("Preco com desconto para Funcionarios: " +descontoFuncionario());
         System.out.println("Laboratorio: " +getLaboratorio());
-        System.out.println("Dosagem: " +getDosagem());
+        System.out.println("Dosagem (em miligramas): " +getDosagem());
         System.out.println("Controlado: " +getControlado());
     }
 }

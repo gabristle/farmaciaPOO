@@ -40,14 +40,26 @@ public abstract class Produto {
         this.farmacia = farmacia;
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setNome(String nome) throws CaractereMinException, CaractereMaxException{
+        if(nome.length() >= 3){
+            if(nome.length() <= 30){
+                this.nome = nome;
+            }else{
+                throw new CaractereMaxException();
+            }
+        }else{
+            throw new CaractereMinException();
+        }
     }
 
-    public void setQuantidade(int quantidade) throws NumNegativoException{
+    public void setQuantidade(int quantidade) throws NumNegativoException, QuantidadeMaxException{
         if(quantidade > 0){
-            this.quantidade = quantidade;
-        } else {
+            if(quantidade <= 1000){
+                this.quantidade = quantidade;
+            }else{
+                throw new QuantidadeMaxException();
+            }
+        }else{
             throw new NumNegativoException();
         }
 

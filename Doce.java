@@ -7,18 +7,6 @@ public class Doce extends Produto{
     private String tipo;
     private String sabor;
 
-    public void impRelatorio(){
-        System.out.println("\t\nRelatorio de alteracao de Doce: ");
-        System.out.println("Estoque alterado por " +getFarmacia().getNomeFunc());
-        System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
-        System.out.println("\nDoce alterado:");
-        System.out.println("Nome: " +getNome());
-        System.out.println("Unidades em estoque: " +getQuantidade());
-        System.out.println("Preco: " +getPreco());
-        System.out.println("Tipo: " +getTipo());
-        System.out.println("Tamanho: " +getSabor());
-    }
-
     public Doce(){
         tipo = "";
         sabor = "";
@@ -63,5 +51,15 @@ public class Doce extends Produto{
             break;
         }
     }
-    
+    public void impRelatorio(){
+        System.out.println("\t\nRelatorio de alteracao de Doce: ");
+        System.out.println("Estoque alterado por " +getFarmacia().getNomeFunc());
+        System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
+        System.out.println("\nDoce alterado:");
+        System.out.println("Nome: " +getNome());
+        System.out.println("Unidades em estoque: " +getQuantidade());
+        System.out.println("Preco: " +getPreco());
+        System.out.println("Tipo: " +getTipo());
+        System.out.println("Tamanho: " +getSabor());
+    }
 }

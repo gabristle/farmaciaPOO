@@ -8,3 +8,4 @@ public class NumNegativoException extends Exception{
         System.out.println("A quantidade deve ser maior que 0!");
     }
 }
+
