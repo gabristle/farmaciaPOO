@@ -16,8 +16,16 @@ public class Doce extends Produto{
         this.tipo = tipo;
     }
 
-    public void setSabor(String sabor){
-        this.sabor = sabor;
+    public void setSabor(String sabor) throws CaractereMinException, CaractereMaxException{
+        if(sabor.length() >= 3){
+            if(sabor.length() <= 20){
+                this.sabor = sabor;
+            }else{
+                throw new CaractereMaxException();
+            }
+        }else{
+            throw new CaractereMinException();
+        }
     }
 
     public String getTipo(){

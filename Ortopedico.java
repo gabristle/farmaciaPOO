@@ -29,16 +29,17 @@ public class Ortopedico extends Produto implements Descontos{
     }
 
     public float descontoCliente(){
-        descCliente = getPreco()-(getPreco() * 0.1f);
-        return descCliente;
+        setDescCliente(getPreco()-(getPreco() * 0.1f));
+        return getDescCliente();
     }
 
     public float descontoFuncionario(){
-        descFunc = getPreco()-(getPreco() * 0.15f);
-        return descFunc;
+        setDescFunc(getPreco()-(getPreco() * 0.15f));
+        return getDescFunc();
     }
 
-    public void switchOrto(int tipo){//metodo sobrecarregado
+    //metodo sobrecarregado
+    public void switchOrto(int tipo){
         switch(tipo){
             case 1:
             this.tipo = "Joelheira";
@@ -66,7 +67,8 @@ public class Ortopedico extends Produto implements Descontos{
         }
     }
 
-    public void switchOrto(char tamanho){//metodo sobrecarregado
+    //metodo sobrecarregado
+    public void switchOrto(char tamanho){
         switch(tamanho){
             case 'M' :
             setTamanho("Medio");

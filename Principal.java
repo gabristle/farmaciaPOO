@@ -29,7 +29,6 @@ public class Principal {
                     opCid = Integer.parseInt(l.entDados("\nEscolha a opcao: "));
                     break;
                 }
-        
                 catch(NumberFormatException nfe){
                     System.out.println("Deve ser um numero. erro --> " +nfe);
                 }
@@ -126,7 +125,22 @@ public class Principal {
                         cmine.impCaractereMin();
                     }
                 }
-                medic.setDosagem(Integer.parseInt(l.entDados("Dosagem (em miligramas):")));
+                while(continua){
+                    try{
+                        medic.setDosagem(Float.parseFloat(l.entDados("Dosagem (em miligramas):")));
+                        break;
+                    }
+                    
+                    catch(NumberFormatException nfe){
+                        System.out.println("Erro! Digite um numero");
+                    }
+                    catch(NumNegativoException nne) {
+                        nne.impNumNegativo();
+                    }
+                    catch(QuantidadeMaxException qme){
+                        qme.impQuantidadeMax();
+                    }
+                } 
 
                 medic.impRelatorio();
                 break;
@@ -166,6 +180,7 @@ public class Principal {
                 while(continua){
                     try{
                         orto.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                        break;
                     }
                     catch(NumberFormatException nfe){
                         System.out.println("Erro! Digite um numero");
@@ -217,6 +232,7 @@ public class Principal {
                 while(continua){
                     try{
                         doce.setQuantidade(Integer.parseInt(l.entDados("Quantidade no estoque: ")));
+                        break;
                     }
                     catch(NumberFormatException nfe){
                         System.out.println("Erro! Digite um numero");
@@ -252,7 +268,18 @@ public class Principal {
                         System.out.println("Erro! Digite um numero: ");
                     }
                 }while(doce.getTipo() != "Bala" && doce.getTipo() != "Chocolate" && doce.getTipo() != "Chiclete" && doce.getTipo() != "Pirulito");
-                doce.setSabor(l.entDados("Sabor: "));
+                while(continua){
+                    try{
+                        doce.setSabor(l.entDados("Sabor: "));
+                        break;
+                    }
+                    catch(CaractereMinException cmine){
+                        cmine.impCaractereMin();
+                    }
+                    catch(CaractereMaxException cmaxe){
+                        cmaxe.impCaractereMax();
+                    }
+                }
                 doce.impRelatorio();
                 break;
 

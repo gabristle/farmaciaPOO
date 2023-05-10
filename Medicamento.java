@@ -5,26 +5,19 @@
 
 public class Medicamento extends Produto implements Descontos{
     private String laboratorio;
-    private int dosagem;
-    private boolean controlado;
+    private float dosagem;
     
     public Medicamento(){
         laboratorio = "";
         dosagem = 0;
-        controlado = false;
     }
-
     
     public String getLaboratorio(){
         return laboratorio;
     }
     
-    public int getDosagem(){
+    public float getDosagem(){
         return dosagem;
-    }
-
-    public boolean getControlado(){
-        return controlado;
     }
     
     public void setLaboratorio(String laboratorio) throws CaractereMinException, CaractereMaxException{
@@ -39,22 +32,26 @@ public class Medicamento extends Produto implements Descontos{
         }
     }
     
-    public void setDosagem(int dosagem){
-        this.dosagem = dosagem;
-    }
-    
-    public void setControlado(boolean controlado){
-        this.controlado = controlado;
+    public void setDosagem(float dosagem) throws NumNegativoException, QuantidadeMaxException{
+        if(dosagem > 0){
+            if(dosagem <=1000){
+            this.dosagem = dosagem;
+            }else{
+                throw new QuantidadeMaxException();
+            }
+        }else{
+            throw new NumNegativoException();
+        }
     }
     
     public float descontoCliente(){
-        descCliente = getPreco()-(getPreco() * 0.1f);
-        return descCliente;
+        setDescCliente(getPreco()-(getPreco() * 0.1f));
+        return getDescCliente();
     }
     
     public float descontoFuncionario(){
-        descFunc = getPreco()-(getPreco() * 0.2f);
-        return descFunc;
+        setDescFunc(getPreco()-(getPreco() * 0.2f));
+        return getDescFunc();
     }
     
     public void impRelatorio(){
@@ -69,6 +66,5 @@ public class Medicamento extends Produto implements Descontos{
         System.out.println("Preco com desconto para Funcionarios: " +descontoFuncionario());
         System.out.println("Laboratorio: " +getLaboratorio());
         System.out.println("Dosagem (em miligramas): " +getDosagem());
-        System.out.println("Controlado: " +getControlado());
     }
 }

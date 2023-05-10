@@ -8,8 +8,8 @@ public abstract class Produto {
     private int quantidade;
     private float preco;
     private Farmacia farmacia;
-    protected float descCliente;
-    protected float descFunc;
+    private float descCliente;
+    private float descFunc;
 
     public abstract void impRelatorio();
 
@@ -18,6 +18,24 @@ public abstract class Produto {
         quantidade = 0;
         preco = 0;
         farmacia = new Farmacia();
+        descCliente = 0;
+        descFunc = 0;
+    }
+
+    public float getDescCliente() {
+        return descCliente;
+    }
+
+    public void setDescCliente(float descCliente) {
+        this.descCliente = descCliente;
+    }
+
+    public float getDescFunc() {
+        return descFunc;
+    }
+
+    public void setDescFunc(float descFunc) {
+        this.descFunc = descFunc;
     }
 
     public Farmacia getFarmacia(){
