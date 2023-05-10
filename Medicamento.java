@@ -61,7 +61,7 @@ public class Medicamento extends Produto implements Descontos{
         System.out.println("\t\nRelatorio de alteracao de Medicamento: ");
         System.out.println("Estoque alterado por " +getFarmacia().getNomeFunc());
         System.out.println("Farmacia da cidade de " +getFarmacia().getCidade());
-        System.out.println("\nMedicamento alterado:");
+        System.out.println("Medicamento alterado:");
         System.out.println("Nome: " +getNome());
         System.out.println("Unidades em estoque: " +getQuantidade());
         System.out.println("Preco: " +getPreco());

@@ -105,6 +105,7 @@ public class Principal {
                 while(continua){
                     try{
                         medic.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                        break;
                     }
                     catch(NumberFormatException nfe){
                         System.out.println("Erro! Digite um numero");
