@@ -42,23 +42,23 @@ public class Ortopedico extends Produto implements Descontos{
     public void switchOrto(int tipo){
         switch(tipo){
             case 1:
-            this.tipo = "Joelheira";
+            setTipo("Joelheira");
             break;
 
             case 2:
-            this.tipo = "Tala";
+            setTipo("Tala");
             break;
 
             case 3:
-            this.tipo = "Tornozeleira";
+            setTipo("Tornozeleira");
             break;
 
             case 4:
-            this.tipo = "Cinta";
+            setTipo("Cinta");
             break;
 
             case 5:
-            this.tipo = "Espaldeira";
+            setTipo("Espaldeira");
             break;
 
             default:
