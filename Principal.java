@@ -247,6 +247,7 @@ public class Principal {
                 while(continua){
                     try{
                         doce.setPreco(Float.parseFloat(l.entDados("Preco: ")));
+                        break;
                     }
                     catch(NumberFormatException nfe){
                         System.out.println("Erro! Digite um numero");
